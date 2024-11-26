@@ -1,0 +1,22 @@
+ENV MYSQL_ROOT_PASSWORD=pass@123
+COPY init.sql /docker-entrypoint-initdb.d/
+COPY init.sh /docker-entrypoint-initdb.d/
+EXPOSE 3306
+CMD ["mysqld"]
+
+
+-----------------------------------------------------------------
+init.sql
+create databases insta;
+
+use insta;
+
+create table users (id int , name varchar(20));
+
+insert into users values(1,'prasad'),(2,'kale');
+---------------------------------------------------------------
+
+--------------------------------------------------------------
+init.sh
+echo "hello.."
+-------------------------------------------------------------
